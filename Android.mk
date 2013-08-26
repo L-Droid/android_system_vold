@@ -18,6 +18,9 @@ endif
 
 ifeq ($(BOARD_VOLD_CRYPTFS_MIGRATE), true)
 common_cflags += -DCRYPTFS_MIGRATE
+
+ifneq ($(TARGET_EXTERNAL_APPS),)
+common_cflags += -DEXTERNAL_APPS_DEVICE_LABEL=\"$(TARGET_EXTERNAL_APPS)\"
 endif
 
 common_cflags += -Werror
